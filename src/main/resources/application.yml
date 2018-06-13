@@ -1,0 +1,35 @@
+server:
+  port: 8082
+  servlet:
+    contextPath: /ons
+
+  ssl:
+    key-store: /Users/paul/bigmac.p12
+    key-store-password: onsonsons
+    keyStoreType: PKCS12
+    keyAlias: bigmac.local
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    uk.gov.ons.oauthclientui.configuration: DEBUG
+
+security:
+  oauth2:
+    client:
+      clientId: ui-test
+      clientSecret: ui-secret
+      accessTokenUri: https://localhost:8443/auth/oauth/v2/token
+      userAuthorizationUri: https://localhost:8443/auth/oauth/v2/authorize
+      scope:
+        - profile
+        - openid
+        - email
+        - phone
+
+    resource:
+      user-info-uri: https://localhost:8443/openid/connect/v1/userinfo

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<html class="lte-ie8" lang="" xmlns:th="http://www.thymeleaf.org"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="" xmlns:th="http://www.thymeleaf.org"><!--<![endif]-->
+
+<head lang="en" th:include="fragments/header :: header"></head>
+
+<body class="">
+
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+<div id="skiplink-container">
+    <div>
+        <a href="#content" class="skiplink"></a>
+    </div>
+</div>
+
+<div lang="en" th:include="fragments/cookie :: cookie"></div>
+
+<div lang="en" th:include="fragments/banner :: banner"></div>
+
+<div class="app">
+    <div id="content" class="container unauthenticated" style="margin-top: 50px;">
+        <h3>Click on the button below to view your shopping list</h3>
+        <br/>
+        <a class="button" th:href="@{/products}">Shopping List</a>
+        <div style="margin-bottom: 150px;">
+        </div>
+    </div>
+</div>
+
+<div lang="en" th:include="fragments/footer :: footer"></div>
+
+</body>
+</html>
+

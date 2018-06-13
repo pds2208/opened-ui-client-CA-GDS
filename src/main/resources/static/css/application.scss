@@ -1,0 +1,59 @@
+
+@import '../govuk_frontend_toolkit/stylesheets/design-patterns/buttons';
+@import '../govuk_frontend_toolkit/stylesheets/grid_layout';
+@import '../govuk_frontend_toolkit/stylesheets/typography';
+
+.button {
+  @include button;
+}
+
+.button-secondary {
+  @include button($grey-3);
+}
+
+.button-warning {
+  @include button($red);
+}
+
+#page-container {
+  @extend %site-width-container;
+}
+
+h1 {
+  @include core-48;
+}
+h2 {
+  @include core-24($tabular-numbers: true);
+}
+
+$logo-height: 80px;
+
+.app {
+
+  text-align: center;
+
+  .title {
+    font-size: 1.5em;
+  }
+
+  .logo {
+    height: $logo-height;
+  }
+
+  .header {
+    background-color: #abafb1;
+    height: 160px;
+    padding: 20px;
+    color: white;
+  }
+
+  .intro {
+    font-size: large;
+  }
+
+  .centre-table {
+    margin: 0 auto;
+    width: 60%;
+  }
+
+}

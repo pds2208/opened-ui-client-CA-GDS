@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en" th:include="fragments/header :: header"></head>
+
+<body class="">
+
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+<div id="skiplink-container">
+    <div>
+        <a href="#content" class="skiplink"></a>
+    </div>
+</div>
+
+
+<div lang="en" th:include="fragments/cookie :: cookie"></div>
+
+<div lang="en" th:include="fragments/banner :: banner"></div>
+
+<div id="content" class="app">
+
+    <h3 class="heading-medium" style="padding-top: 15px; padding-bottom: 15px;">Welcome <span
+            th:text="${#authentication.name}"></span>, your shopping list awaits you.</h3>
+
+    <div id="page-container" class="example">
+        <div th:if="${not #lists.isEmpty(products)}">
+            <table class="centre-table">
+                <thead>
+                <tr>
+                    <th align="left">Item Description</th>
+                    <th class="numeric" align="right">Budgeted Cost</th>
+                </tr>
+                </thead>
+                <tr th:each="prod : ${products}">
+                    <td align="left">
+                            <span th:inline="text"> [[${prod.description}]]
+                            </span>
+                    </td>
+                    <td align="right" class="numeric">
+                            <span th:inline="text">£ [[${#numbers.formatDecimal(prod.cost, 0, 'COMMA', 2, 'POINT')}]]
+                            </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <p style="padding-bottom: 50px;margin-top: 50px;">
+        <a class="button" th:href="@{/logout}">Logout</a>
+    </p>
+</div>
+
+<div lang="en" th:include="fragments/footer :: footer"></div>
+
+</body>
+</html>
